@@ -108,7 +108,7 @@
 
             <div class="flex items-start">
                 <div class="flex items-center h-5">
-                    <input id="terms" name="terms" type="checkbox"
+                    <input id="terms" name="terms" type="checkbox" <?= !empty($old['terms']) ? 'checked' : '' ?>
                         class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" />
                 </div>
                 <div class="ml-3 text-sm">
@@ -120,6 +120,11 @@
                             Policy</a></label>
                 </div>
             </div>
+            <?php if (!empty($errors['terms'])): ?>
+                <p class="text-sm text-red-600 mt-1">
+                    <?= $errors['terms'] ?>
+                </p>
+            <?php endif; ?>
 
             <button type="submit"
                 class="group relative w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg">

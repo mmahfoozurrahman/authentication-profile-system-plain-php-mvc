@@ -9,4 +9,4 @@ if (!currentUser()) {
     redirect('/login.php');
 }
 
-(new ProfileController())->dashboard();
+(new ProfileController())->edit();

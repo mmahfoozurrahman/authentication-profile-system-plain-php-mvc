@@ -10,5 +10,7 @@ function auth()
 
 function currentUser(): ?array
 {
+    // print_r($_SESSION);
+    // exit;
     return $_SESSION['user'] ?? null;
 }

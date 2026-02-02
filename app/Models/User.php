@@ -37,6 +37,17 @@ class User
         return $stmt->fetch() ?: null;
     }
 
+    public function find(int $id, array $fields = ['*']): ?array
+    {
+        $columns = implode(', ', $fields);
+        $stmt = $this->db->prepare(
+            "SELECT {$columns} FROM users WHERE id = :id LIMIT 1"
+        );
+        $stmt->execute(['id' => $id]);
+
+        return $stmt->fetch() ?: null;
+    }
+
     public function update(int $id, array $data): bool
     {
         $sql = "UPDATE users SET name = :name, email = :email";

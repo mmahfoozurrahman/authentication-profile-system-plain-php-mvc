@@ -1,4 +1,4 @@
 <?php
-require_once '../core/Helpers.php';
+require_once '../app/core/Helpers.php';
 
 redirect('/login.php');

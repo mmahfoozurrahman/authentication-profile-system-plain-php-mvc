@@ -1,8 +1,9 @@
 <?php
-session_start();
+// session_start();
+require_once '../app/core/Helpers.php';
 
 session_unset();
 session_destroy();
 
-header('Location: /login.php');
-exit;
+// header('Location: /login.php');
+redirect("/");

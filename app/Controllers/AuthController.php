@@ -8,11 +8,6 @@ class AuthController
 {
     public function register()
     {
-
-        if (currentUser()) {
-            redirect('/profile.php');
-        }
-
         $errors = [];
         $old = [];
 
@@ -47,10 +42,6 @@ class AuthController
 
     public function login()
     {
-        if (currentUser()) {
-            redirect('/profile.php');
-        }
-
         $errors = [];
         $old = [];
 
@@ -88,7 +79,7 @@ class AuthController
                     'email' => $user['email'],
                 ];
 
-                redirect('/profile.php');
+                redirect('/profile/dashboard.php');
             }
         }
 

@@ -5,4 +5,8 @@ require_once __DIR__ . '/../../app/core/Helpers.php';
 
 use App\Controllers\ProfileController;
 
-(new ProfileController())->profile();
+if (!currentUser()) {
+    redirect('/login.php');
+}
+
+(new ProfileController())->edit_password();
