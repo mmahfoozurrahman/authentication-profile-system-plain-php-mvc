@@ -81,6 +81,9 @@ project/
 │       └── edit_password.php
 │
 ├── vendor/                   # Composer dependencies
+├── .env                      # Environment variables (not in git)
+├── .env.example              # Environment variables template
+├── .gitignore                # Git ignore file
 ├── composer.json             # Composer configuration
 └── README.md                 # This file
 ```
@@ -97,7 +100,7 @@ project/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/mmahfoozurrahman/authentication-profile-system-plain-php-mvc
    cd project
    ```
 
@@ -106,12 +109,27 @@ project/
    composer install
    ```
 
-3. **Create database**
+3. **Configure environment variables**
+   
+   Copy the `.env.example` file to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Update the `.env` file with your database credentials:
+   ```env
+   DB_HOST=localhost
+   DB_NAME=auth_profile_db
+   DB_USER=root
+   DB_PASS=your_password_here
+   ```
+
+4. **Create database**
    ```sql
    CREATE DATABASE auth_profile_db;
    ```
 
-4. **Create users table**
+5. **Create users table**
    ```sql
    USE auth_profile_db;
    
@@ -123,16 +141,6 @@ project/
        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
    );
-   ```
-
-5. **Configure database connection**
-   
-   Update the database credentials in `app/core/Database.php`:
-   ```php
-   private static string $host = 'localhost';
-   private static string $dbname = 'auth_profile_db';
-   private static string $username = 'root';
-   private static string $password = '';
    ```
 
 6. **Start the development server**
