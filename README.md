@@ -90,6 +90,8 @@ project/
 
 ## Setup Instructions
 
+> **Important:** The `public/` folder is the document root of this application. When deploying to a production server (Apache/Nginx), configure your web server to point to the `public/` directory as the document root for security and proper routing.
+
 ### Prerequisites
 - PHP 7.4 or higher
 - MySQL 5.7 or higher
